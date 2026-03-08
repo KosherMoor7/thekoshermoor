@@ -1564,9 +1564,9 @@
     .btn-primary, .btn-secondary { min-height: 44px !important; }
     /* Fix admin modal width on tablets */
     #adminModal .modal-box { max-width: 98vw !important; }
-    /* Modal scroll on small screens */
+    /* Modal scroll on small screens — let modal-box be the single scroll container */
     .modal-box { max-height: 92vh; overflow-y: auto; }
-    .modal-body { max-height: 75vh; overflow-y: auto; }
+    .modal-body { max-height: none; overflow-y: visible; }
     /* Fix chat panel on narrow phones */
     .chat-panel { width: 92vw !important; right: -10px !important; }
     /* Admin tabs wrap properly */
@@ -1576,12 +1576,18 @@
   }
   @media (max-width: 480px) {
     .hero-stats { grid-template-columns: repeat(2, 1fr) !important; }
-    .frow { flex-direction: column !important; }
+    /* frow is display:grid — use grid-template-columns to stack, not flex-direction */
+    .frow { grid-template-columns: 1fr !important; }
     .fg { min-width: 100% !important; }
     .modal-box { width: 98vw !important; margin: 1vw !important; padding: 0 !important; }
+    /* Reduce oversized padding (2rem sides → ≤1rem) that squeezes form content on narrow phones */
+    .modal-header { padding: 0.8rem 1rem !important; }
+    .modal-body { padding: 1rem 1rem !important; }
     .admin-tabs .atab { font-size: 0.38rem !important; padding: 0.5rem 0.5rem !important; }
     #payMethodGrid { grid-template-columns: repeat(2, 1fr) !important; }
     .totp-box { width: 36px !important; height: 44px !important; font-size: 1.1rem !important; }
+    /* Prevent iOS Safari from zooming into inputs with font-size < 16px */
+    .fg input, .fg select, .fg textarea { font-size: 16px !important; }
   }
 
   /* Force font-display swap to prevent FOIT */
