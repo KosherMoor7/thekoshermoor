@@ -6,28 +6,30 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0A08'/%3E%3Ctext x='32' y='46' font-size='40' text-anchor='middle' fill='%23C8A951'%3E%F0%9F%91%91%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0A08'/%3E%3Ctext x='32' y='46' font-size='40' text-anchor='middle' fill='%23C8A951'%3E%F0%9F%91%91%3C/text%3E%3C/svg%3E">
 <title>The Kosher Moor — Sovereign Herbal Marketplace | Teas, Tinctures &amp; Consulting</title>
   <!-- ═══ SEO META ═══ -->
   <meta name="description" content="The Kosher Moor is a sovereign herbal marketplace offering premium teas, tinctures, herbal supplements, merch, lawn care, mobile auto service, and transformative consulting. Heritage-driven. Purpose-built.">
   <meta name="keywords" content="herbal tea, tinctures, herbal supplements, sovereign marketplace, lawn care, mobile tire service, business consulting, kosher moor">
   <meta name="author" content="The Kosher Moor">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://thekoshermoor.com/">
+  <link rel="canonical" href="https://www.thekoshermoor.com/">
   <!-- ═══ OPEN GRAPH ═══ -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://thekoshermoor.com/">
+  <meta property="og:url" content="https://www.thekoshermoor.com/">
   <meta property="og:title" content="The Kosher Moor — Sovereign Herbal Marketplace">
   <meta property="og:description" content="Heritage-driven herbal products, curated merch, lawn care, mobile tire service, and sovereign business consulting. Experience the Moor.">
-  <meta property="og:image" content="https://thekoshermoor.com/og-image.jpg">
+  <meta property="og:image" content="https://www.thekoshermoor.com/og-image.jpg">
   <meta property="og:site_name" content="The Kosher Moor">
   <!-- ═══ TWITTER CARD ═══ -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Kosher Moor — Sovereign Marketplace">
   <meta name="twitter:description" content="Herbal teas, tinctures, supplements, merch, lawn care, mobile tire service and business consulting.">
-  <meta name="twitter:image" content="https://thekoshermoor.com/og-image.jpg">
+  <meta name="twitter:image" content="https://www.thekoshermoor.com/og-image.jpg">
   <!-- ═══ SCHEMA.ORG — Store ═══ -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Store","name":"The Kosher Moor","url":"https://thekoshermoor.com","description":"Sovereign herbal marketplace offering premium teas, tinctures, supplements, merch, lawn care, mobile tire service, and business consulting.","priceRange":"$$","currenciesAccepted":"USD","paymentAccepted":"Credit Card, PayPal, Cash App, Venmo, Zelle, Crypto","openingHours":["Mo-Fr 09:00-19:00","Sa 10:00-18:00"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Sovereign Products and Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Product","name":"Herbal Teas and Blends"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Tinctures and Elixirs"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Lawn Care"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Mobile Tire Service"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Business Consulting"}}]}}
+  {"@context":"https://schema.org","@type":"Store","name":"The Kosher Moor","url":"https://www.thekoshermoor.com","description":"Sovereign herbal marketplace offering premium teas, tinctures, supplements, merch, lawn care, mobile tire service, and business consulting.","priceRange":"$$","currenciesAccepted":"USD","paymentAccepted":"Credit Card, PayPal, Cash App, Venmo, Zelle, Crypto","openingHours":["Mo-Fr 09:00-19:00","Sa 10:00-18:00"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Sovereign Products and Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Product","name":"Herbal Teas and Blends"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Tinctures and Elixirs"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Lawn Care"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Mobile Tire Service"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Business Consulting"}}]}}
   </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1562,9 +1564,9 @@
     .btn-primary, .btn-secondary { min-height: 44px !important; }
     /* Fix admin modal width on tablets */
     #adminModal .modal-box { max-width: 98vw !important; }
-    /* Modal scroll on small screens */
+    /* Modal scroll on small screens — let modal-box be the single scroll container */
     .modal-box { max-height: 92vh; overflow-y: auto; }
-    .modal-body { max-height: 75vh; overflow-y: auto; }
+    .modal-body { max-height: none; overflow-y: visible; }
     /* Fix chat panel on narrow phones */
     .chat-panel { width: 92vw !important; right: -10px !important; }
     /* Admin tabs wrap properly */
@@ -1574,19 +1576,23 @@
   }
   @media (max-width: 480px) {
     .hero-stats { grid-template-columns: repeat(2, 1fr) !important; }
-    .frow { flex-direction: column !important; }
+    /* frow is display:grid — use grid-template-columns to stack, not flex-direction */
+    .frow { grid-template-columns: 1fr !important; }
     .fg { min-width: 100% !important; }
     .modal-box { width: 98vw !important; margin: 1vw !important; padding: 0 !important; }
+    /* Reduce oversized padding (2rem sides → ≤1rem) that squeezes form content on narrow phones */
+    .modal-header { padding: 0.8rem 1rem !important; }
+    .modal-body { padding: 1rem 1rem !important; }
     .admin-tabs .atab { font-size: 0.38rem !important; padding: 0.5rem 0.5rem !important; }
     #payMethodGrid { grid-template-columns: repeat(2, 1fr) !important; }
     .totp-box { width: 36px !important; height: 44px !important; font-size: 1.1rem !important; }
+    /* Prevent iOS Safari from zooming into inputs with font-size < 16px */
+    .fg input, .fg select, .fg textarea { font-size: 16px !important; }
   }
 
   /* Force font-display swap to prevent FOIT */
   @font-face { font-display: swap; }
 </style>
-</head>
-
 </head>
 <body>
 
@@ -1602,7 +1608,7 @@
   <button class="welcome-close" onclick="document.getElementById('welcomeBanner').classList.remove('show')">✕</button>
 </div>
 
-<a href="#main-content" onclick="event.preventDefault();scrollTo('home')" style="position:absolute;top:-40px;left:0;background:var(--gold);color:var(--obsidian);padding:0.5rem 1rem;z-index:99999;font-size:0.85rem;font-weight:700;transition:top 0.15s;text-decoration:none;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+<a href="#main-content" onclick="event.preventDefault();scrollToSection('home')" style="position:absolute;top:-40px;left:0;background:var(--gold);color:var(--obsidian);padding:0.5rem 1rem;z-index:99999;font-size:0.85rem;font-weight:700;transition:top 0.15s;text-decoration:none;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
@@ -1614,11 +1620,11 @@
       <span class="nav-logo-sub">◆ Sovereign Marketplace ◆</span>
     </div>
     <ul class="nav-links">
-      <li><a href="#about" onclick="event.preventDefault();scrollTo('about')">About Us</a></li>
-      <li><a href="#products" onclick="event.preventDefault();scrollTo('products')">Products</a></li>
-      <li><a href="#services" onclick="event.preventDefault();scrollTo('services')">Services</a></li>
-      <li><a href="#hours" onclick="event.preventDefault();scrollTo('hours')">Hours</a></li>
-      <li><a href="#reviews" onclick="event.preventDefault();scrollTo('reviews')">Reviews</a></li>
+      <li><a href="#about" onclick="event.preventDefault();scrollToSection('about')">About Us</a></li>
+      <li><a href="#products" onclick="event.preventDefault();scrollToSection('products')">Products</a></li>
+      <li><a href="#services" onclick="event.preventDefault();scrollToSection('services')">Services</a></li>
+      <li><a href="#hours" onclick="event.preventDefault();scrollToSection('hours')">Hours</a></li>
+      <li><a href="#reviews" onclick="event.preventDefault();scrollToSection('reviews')">Reviews</a></li>
       <li><a href="#contact" onclick="event.preventDefault();openModal('leadModal')">Contact</a></li>
     </ul>
     <button class="nav-cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
@@ -1768,12 +1774,12 @@
     </div>
 
     <div class="product-categories reveal">
-      <button class="cat-btn active" onclick="filterProducts('all')">All Products</button>
-      <button class="cat-btn" onclick="filterProducts('tea')">🍵 Teas</button>
-      <button class="cat-btn" onclick="filterProducts('tincture')">🧪 Tinctures</button>
-      <button class="cat-btn" onclick="filterProducts('herb')">🌿 Supplements</button>
-      <button class="cat-btn" onclick="filterProducts('merch')">👕 Merch</button>
-      <button class="cat-btn" onclick="filterProducts('care')">🪴 Lawn &amp; Auto</button>
+      <button class="cat-btn active" data-category="all" onclick="filterProducts('all')">All Products</button>
+      <button class="cat-btn" data-category="tea" onclick="filterProducts('tea')">🍵 Teas</button>
+      <button class="cat-btn" data-category="tincture" onclick="filterProducts('tincture')">🧪 Tinctures</button>
+      <button class="cat-btn" data-category="herb" onclick="filterProducts('herb')">🌿 Supplements</button>
+      <button class="cat-btn" data-category="merch" onclick="filterProducts('merch')">👕 Merch</button>
+      <button class="cat-btn" data-category="care" onclick="filterProducts('care')">🪴 Lawn &amp; Auto</button>
     </div>
 
     <div class="products-grid reveal" id="productsGrid">
@@ -2069,6 +2075,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- ═══ FOOTER ═══ -->
 <footer role="contentinfo">
@@ -2087,23 +2094,23 @@
     <div class="footer-col">
       <h4>Shop</h4>
       <ul>
-        <li><a href="#products" onclick="event.preventDefault();scrollTo('products');filterCat('tea')">Sacred Teas</a></li>
-        <li><a href="#products" onclick="event.preventDefault();scrollTo('products');filterCat('tincture')">Tinctures</a></li>
-        <li><a href="#products" onclick="event.preventDefault();scrollTo('products');filterCat('herb')">Herbal Supplements</a></li>
-        <li><a href="#products" onclick="event.preventDefault();scrollTo('products');filterCat('merch')">Merch &amp; Clothing</a></li>
-        <li><a href="#products" onclick="event.preventDefault();scrollTo('products');filterCat('all')">Gift Bundles</a></li>
-        <li><a href="#delivery" onclick="event.preventDefault();scrollTo('services')">Subscriptions</a></li>
+        <li><a href="#products" onclick="event.preventDefault();scrollToSection('products');filterCat('tea')">Sacred Teas</a></li>
+        <li><a href="#products" onclick="event.preventDefault();scrollToSection('products');filterCat('tincture')">Tinctures</a></li>
+        <li><a href="#products" onclick="event.preventDefault();scrollToSection('products');filterCat('herb')">Herbal Supplements</a></li>
+        <li><a href="#products" onclick="event.preventDefault();scrollToSection('products');filterCat('merch')">Merch &amp; Clothing</a></li>
+        <li><a href="#products" onclick="event.preventDefault();scrollToSection('products');filterCat('all')">Gift Bundles</a></li>
+        <li><a href="#delivery" onclick="event.preventDefault();scrollToSection('services')">Subscriptions</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#delivery" onclick="event.preventDefault();scrollTo('services')">Delivery</a></li>
-        <li><a href="#services" onclick="event.preventDefault();scrollTo('services');setTimeout(()=>filterCat('care'),400)">Lawn Care</a></li>
-        <li><a href="#services" onclick="event.preventDefault();scrollTo('services');setTimeout(()=>filterCat('care'),400)">Auto Care</a></li>
-        <li><a href="#consulting" onclick="event.preventDefault();scrollTo('services');setTimeout(()=>openModal('consultModal'),600)">Consulting</a></li>
-        <li><a href="#products" onclick="event.preventDefault();scrollTo('products');filterCat('all')">Wholesale</a></li>
-        <li><a href="#products" onclick="event.preventDefault();scrollTo('products');filterCat('all')">Custom Orders</a></li>
+        <li><a href="#delivery" onclick="event.preventDefault();scrollToSection('services')">Delivery</a></li>
+        <li><a href="#services" onclick="event.preventDefault();scrollToSection('services');setTimeout(()=>filterCat('care'),400)">Lawn Care</a></li>
+        <li><a href="#services" onclick="event.preventDefault();scrollToSection('services');setTimeout(()=>filterCat('care'),400)">Auto Care</a></li>
+        <li><a href="#consulting" onclick="event.preventDefault();scrollToSection('services');setTimeout(()=>openModal('consultModal'),600)">Consulting</a></li>
+        <li><a href="#products" onclick="event.preventDefault();scrollToSection('products');filterCat('all')">Wholesale</a></li>
+        <li><a href="#products" onclick="event.preventDefault();scrollToSection('products');filterCat('all')">Custom Orders</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -2119,8 +2126,8 @@
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="#home" onclick="event.preventDefault();scrollTo('home')">About the Moor</a></li>
-        <li><a href="#about" onclick="event.preventDefault();scrollTo('about')">Our Mission</a></li>
+        <li><a href="#home" onclick="event.preventDefault();scrollToSection('home')">About the Moor</a></li>
+        <li><a href="#about" onclick="event.preventDefault();scrollToSection('about')">Our Mission</a></li>
         <li><a href="javascript:void(0)" onclick="openModal('leadModal')">Careers</a></li>
         <li><a href="javascript:void(0)" onclick="openModal('leadModal')">Press</a></li>
         <li><a href="javascript:void(0)" onclick="openModal('leadModal')">Contact</a></li>
@@ -2129,7 +2136,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2024 The Kosher Moor. All Rights Reserved. Sovereignty is non-negotiable. </p>
+    <p>© 2026 The Kosher Moor. All Rights Reserved. Sovereignty is non-negotiable. </p>
     <div class="footer-bottom-links">
       <button class="footer-policy-btn" onclick="openModal('leadModal')">Privacy Policy</button>
       <button class="footer-policy-btn" onclick="openModal('leadModal')">Terms of Service</button>
@@ -2770,9 +2777,6 @@ const countObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 counters.forEach(c => countObserver.observe(c));
 
-// ═══ PRODUCT FILTER ═══
-// filterProducts() defined in dynamic storefront section above
-
 // ═══════════════════════════════════════════════════════
 // SOVEREIGN AI CUSTOMER SERVICE AGENT — Full Automation
 // Powered by Claude AI · Real Conversation · Full Context
@@ -3105,8 +3109,6 @@ function filterCat(cat) {
   });
   document.getElementById('products').scrollIntoView({behavior:'smooth'});
 }
-// Keep old filterProducts working too
-function filterProducts(cat, el) { filterCat(cat); }
 
 // ═══ SOVEREIGN DATA STORE (secure vault sim) ═══
 const DB = {
@@ -3213,9 +3215,30 @@ if(ud){
 }
 
 // ═══ LEAD MANAGEMENT ═══
-function saveLead(data){
-  DB.leads.unshift({...data, id:DB.nextId.leads++, date: new Date().toLocaleDateString(), status:'New'});
-  updateCRMStats();
+/**
+ * Save a new lead to the local database and asynchronously sync it to
+ * connected email platforms (Mailchimp / Klaviyo). Deduplicates by email.
+ * @param {Object} data  Lead object with at minimum an `email` property.
+ *   Other expected fields: name, phone, interest, source.
+ */
+function saveLead(data) {
+  if (!data || !data.email) return;
+  if (!DB.leads) DB.leads = [];
+  const existing = DB.leads.find(function(l) { return l.email && l.email.toLowerCase() === data.email.toLowerCase(); });
+  if (!existing) {
+    DB.leads.unshift({...data, id: DB.nextId.leads++, date: new Date().toLocaleDateString(), status: 'New'});
+    updateCRMStats();
+    syncLeadToMailchimp(data).then(function(res) {
+      if (!res.ok && EMAIL_INTEGRATIONS.mailchimp.enabled) {
+        console.error('[KM] Mailchimp sync failed for', data.email, '—', res.reason || '', res.detail || '');
+      }
+    });
+    syncLeadToKlaviyo(data).then(function(res) {
+      if (!res.ok && EMAIL_INTEGRATIONS.klaviyo.enabled) {
+        console.error('[KM] Klaviyo sync failed for', data.email, '—', res.reason || '', res.detail || '');
+      }
+    });
+  }
 }
 
 function submitLead(){
@@ -3352,12 +3375,6 @@ function loadEmailTemplate(type){
   const t = emailTemplates[type];
   document.getElementById('emailPreviewContent').innerHTML = t.body;
   document.getElementById('emailPreviewBox').style.display='block';
-}
-
-function sendEmailCampaign(){
-  const es = document.getElementById('emailSuccess'); if(es) es.style.display='block';
-  const esent = document.getElementById('emailsSent'); if(esent) esent.textContent = (DB.leads.length * 4);
-  setTimeout(()=>{ const e=document.getElementById('emailSuccess'); if(e) e.style.display='none'; },5000);
 }
 
 // ═══ REVIEWS ═══
@@ -3831,7 +3848,7 @@ function sendTrackingNotification() {
   // Show confirmation in chat (simulate notification sent)
   const msg = 'Tracking notification sent to ' + email + '! ' + carrier + ' #' + num + (eta ? ' · Estimated delivery: ' + eta : '') + ' 📦';
   if (document.getElementById('chatPanel').classList.contains('open')) {
-    addMsg(msg, 'bot');
+    addBotMsg(msg);
   }
 
   const s = document.getElementById('trackSuccess');
@@ -4047,7 +4064,7 @@ function selectBNPL(provider, el) {
 }
 
 function applePayPrompt() {
-  if (window.ApplePaySession && ApplePaySession.canMakePayments()) {
+  if (window.ApplePaySession && window.ApplePaySession.canMakePayments()) {
     alert('Apple Pay is available on this device. Integration with your payment processor is required to complete the transaction.');
   } else {
     alert('Apple Pay is available on Safari with Apple Pay-enabled devices. Please use another payment method or open on an Apple device with Safari.');
@@ -4378,7 +4395,7 @@ const EMAIL_INTEGRATIONS = {
 };
 
 async function syncLeadToMailchimp(lead) {
-  if (!EMAIL_INTEGRATIONS.mailchimp.enabled || !EMAIL_INTEGRATIONS.mailchimp.apiKey) return false;
+  if (!EMAIL_INTEGRATIONS.mailchimp.enabled || !EMAIL_INTEGRATIONS.mailchimp.apiKey) return { ok: false };
   const cfg = EMAIL_INTEGRATIONS.mailchimp;
   try {
     const res = await fetch('https://cors-proxy.example.com/https://' + cfg.serverPrefix + '.api.mailchimp.com/3.0/lists/' + cfg.listId + '/members', {
@@ -4386,12 +4403,13 @@ async function syncLeadToMailchimp(lead) {
       headers: { 'Authorization': 'Basic ' + btoa('anystring:' + cfg.apiKey), 'Content-Type': 'application/json' },
       body: JSON.stringify({ email_address: lead.email, status: 'subscribed', merge_fields: { FNAME: lead.name } })
     });
-    return res.ok;
-  } catch(e) { return false; }
+    if (!res.ok) { const body = await res.text().catch(function(){return '';}); return { ok: false, reason: 'HTTP ' + res.status, detail: body }; }
+    return { ok: true };
+  } catch(e) { return { ok: false, reason: 'Network error', detail: e.message }; }
 }
 
 async function syncLeadToKlaviyo(lead) {
-  if (!EMAIL_INTEGRATIONS.klaviyo.enabled || !EMAIL_INTEGRATIONS.klaviyo.publicKey) return false;
+  if (!EMAIL_INTEGRATIONS.klaviyo.enabled || !EMAIL_INTEGRATIONS.klaviyo.publicKey) return { ok: false };
   const cfg = EMAIL_INTEGRATIONS.klaviyo;
   try {
     const payload = btoa(JSON.stringify({
@@ -4399,35 +4417,9 @@ async function syncLeadToKlaviyo(lead) {
       properties: { email: lead.email, first_name: lead.name, source: lead.source || 'Website' }
     }));
     const res = await fetch('https://a.klaviyo.com/api/identify?data=' + payload);
-    return res.ok;
-  } catch(e) { return false; }
-}
-
-// Wrap saveLead to also sync to email platforms
-const _originalSaveLead = typeof saveLead === 'function' ? saveLead : null;
-
-function saveLead(lead) {
-  if (!lead || !lead.email) return;
-  if (!DB.leads) DB.leads = [];
-  const existing = DB.leads.find(function(l) { return l.email && l.email.toLowerCase() === lead.email.toLowerCase(); });
-  if (!existing) {
-    const now = new Date();
-    const newLead = {
-      id: DB.nextId ? DB.nextId++ : 1,
-      name: lead.name || 'Visitor',
-      email: lead.email,
-      phone: lead.phone || '',
-      interest: lead.interest || 'General',
-      source: lead.source || 'Website',
-      status: 'New',
-      date: now.toLocaleDateString()
-    };
-    DB.leads.unshift(newLead);
-    updateCRMStats();
-    // Async sync to email platforms
-    syncLeadToMailchimp(newLead);
-    syncLeadToKlaviyo(newLead);
-  }
+    if (!res.ok) { const body = await res.text().catch(function(){return '';}); return { ok: false, reason: 'HTTP ' + res.status, detail: body }; }
+    return { ok: true };
+  } catch(e) { return { ok: false, reason: 'Network error', detail: e.message }; }
 }
 
 // ══════════════════════════════════════════════════
@@ -5023,7 +5015,7 @@ UNAUTHORIZED USE IS A FEDERAL OFFENSE.
 
 
 // ── Smooth scroll helper (bypasses iframe anchor interception) ──
-function scrollTo(id) {
+function scrollToSection(id) {
   var el = document.getElementById(id);
   if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
 }
@@ -5114,7 +5106,8 @@ function renderStorefront(filterCat) {
 // Override filterProducts to use renderStorefront
 function filterProducts(cat) {
   document.querySelectorAll('.cat-btn').forEach(function(b){ b.classList.remove('active'); });
-  if (event && event.target) event.target.classList.add('active');
+  var activeBtn = document.querySelector('.cat-btn[data-category="' + cat + '"]');
+  if (activeBtn) activeBtn.classList.add('active');
   renderStorefront(cat);
 }
 
