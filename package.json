@@ -1,1 +1,25 @@
-package.json
+{
+  "name": "thekoshermoor-api",
+  "version": "1.0.0",
+  "description": "Backend API for The Kosher Moor sovereign marketplace",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js",
+    "test": "jest --testPathPattern=test/ --forceExit"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
